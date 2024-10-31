@@ -8,6 +8,10 @@ body {
     box-sizing: border-box;
 }
 
+.search-box input {
+    text-transform: capitalize;
+}
+
 .search-box button {
     background-color: white;
     border-radius: 24px;
