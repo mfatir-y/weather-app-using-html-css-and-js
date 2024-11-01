@@ -10,15 +10,19 @@
 </head>
 <body class="d-flex align-items-center justify-content-center">
     <div class="container">
-        <div class="header">
+        <div class="header mb-4">
             <!-- <h2 class="m-2">Weather Display App</h2> -->
             <div class="search-box shadow d-flex w-100 gap-2 justify-content-between bg-white border rounded-pill px-4 p-3">
                 <input type="text" placeholder="Enter location name" class="searchValue w-100 p-2 border-0 fs-5 text-black">
                 <button class="searchButton p-2 px-3 border-0 fs-5"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
         </div>
-        <div class="weather-body">
-            
+        <div class="weather-body row row-cols-3 m-1 justify-content-center">
+            <div class="weather-card col bg-white p-3 shadow d-flex flex-column align-items-center rounded-3">
+                <h4 class="city-name"></h3>
+                <div class="temperature"></div>
+                <div class="description"></div>
+            </div>
         </div>
     </div>  
     <script src="script.js"></script>  
