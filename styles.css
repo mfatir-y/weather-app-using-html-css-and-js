@@ -1,5 +1,5 @@
 body {
-    background-color: lightblue;
+    background-color: lightskyblue;
     height: 100vh;
 }
 
@@ -12,11 +12,15 @@ body {
     text-transform: capitalize;
 }
 
-.search-box button {
+.searchButton {
     background-color: white;
-    border-radius: 24px;
+    border-radius: 3rem;
+    width: 3rem;
+    height: 3rem;
+
 }
 
-.search-box button:hover {
+.searchButton:hover {
+    /* background-color: rgb(232, 232, 232); */
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }

@@ -13,7 +13,7 @@ searchButton.addEventListener('click', function() {
         var descValue = data['weather'][0]['description'];
 
         cityName.innerHTML = nameValue;
-        temperature.innerHTML = tempValue + '°C';
+        temperature.innerHTML = tempValue + ' °C';
         description.innerHTML = descValue;
     })
     .catch(e => alert("Please enter a valid city name."));
