@@ -24,3 +24,7 @@ body {
     /* background-color: rgb(232, 232, 232); */
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
+
+.weather-icon {
+    height: 70px;
+}
