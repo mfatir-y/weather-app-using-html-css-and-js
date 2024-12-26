@@ -8,6 +8,8 @@ body {
     box-sizing: border-box;
 }
 
+
+
 .search-box input {
     text-transform: capitalize;
 }
@@ -22,9 +24,14 @@ body {
 
 .searchButton:hover {
     /* background-color: rgb(232, 232, 232); */
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
 }
 
 .weather-icon {
     height: 70px;
+}
+
+.btn-dark:hover {
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+    font-weight: bold;
 }

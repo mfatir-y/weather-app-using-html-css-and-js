@@ -15,7 +15,7 @@ function createCityCard(data) {
     col.className = 'col';
     
     var card = document.createElement('div');
-    card.className = 'card text-white bg-dark h-100 text-center shadow rounded-3';
+    card.className = 'card text-black h-100 text-center shadow rounded-3';
 
     var cardHeader = document.createElement('div');
     cardHeader.className = 'card-header pb-0 d-flex flex-direction-row justify-content-around align-items-center';
@@ -37,7 +37,12 @@ function createCityCard(data) {
     cardHeader.appendChild(weatherIcon);
 
     var cardBody = document.createElement('div');
-    cardBody.className = 'card-body';
+    cardBody.className = 'card-body pt-1';
+
+    var descElement = document.createElement('p');
+    descElement.className = 'description card-text text-capitalize fw-bold';
+    descElement.textContent = data['weather'][0]['description'];
+    cardBody.appendChild(descElement);
 
     var tempElements = document.createElement('div');
     tempElements.className = 'd-flex justify-content-around';
@@ -64,11 +69,6 @@ function createCityCard(data) {
     windElement.className = 'wind card-text';
     windElement.textContent = `Wind Speed: ${data.wind.speed} m/s`;
     cardBody.appendChild(windElement);
-
-    var descElement = document.createElement('p');
-    descElement.className = 'description card-text text-capitalize fw-bold';
-    descElement.textContent = data['weather'][0]['description'];
-    cardBody.appendChild(descElement);
 
     card.appendChild(cardHeader);
     card.appendChild(cardBody);
