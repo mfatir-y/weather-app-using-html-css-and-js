@@ -8,8 +8,6 @@ body {
     box-sizing: border-box;
 }
 
-
-
 .search-box input {
     text-transform: capitalize;
 }

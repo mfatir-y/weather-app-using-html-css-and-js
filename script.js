@@ -107,3 +107,10 @@ searchInput.addEventListener('keypress', function(event) {
         fetchWeather();
     }
 });
+
+var clearButton = document.querySelector('.clear');
+
+clearButton.addEventListener('click', function () {
+    citiesSearchedContainer.innerHTML = '';
+    alert("Board will now be cleared.");
+});
