@@ -1,6 +1,5 @@
 body {
     background-color: lightskyblue;
-    height: 100vh;
 }
 
 *{
@@ -29,7 +28,16 @@ body {
     height: 70px;
 }
 
-.btn-dark:hover {
+.btn-light {
+    border: 1px solid black;
+}
+
+.btn-light:hover {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
-    font-weight: bold;
+    background-color: rgb(29, 29, 29);
+    color: white;
+}
+
+.row {
+    margin-bottom: 5rem;
 }

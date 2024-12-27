@@ -16,7 +16,7 @@ function createCityCard(data) {
     col.className = 'col';
     
     var card = document.createElement('div');
-    card.className = 'card text-black h-100 text-center shadow rounded-3';
+    card.className = 'card text-black h-100 text-center shadow rounded-3 bg-dark text-white';
 
     var cardHeader = document.createElement('div');
     cardHeader.className = 'card-header pb-0 d-flex flex-direction-row justify-content-around align-items-center';
@@ -107,7 +107,6 @@ searchInput.addEventListener('keypress', function(event) {
         fetchWeather();
     }
 });
-
 
 function clearBoard() {
     citiesSearchedContainer.innerHTML = '';
