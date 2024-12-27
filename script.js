@@ -1,3 +1,4 @@
+const API_KEY = 'e9fdbec485cb1bb68cbd3557feb65d88';
 var searchButton = document.querySelector('.searchButton');
 var searchInput = document.querySelector('.searchValue');
 var cityName = document.querySelector('.city-name');
@@ -89,7 +90,7 @@ function fetchWeather() {
         return;
     }
 
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=e9fdbec485cb1bb68cbd3557feb65d88&units=metric')
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + API_KEY +'&units=metric')
         .then(response => response.json())
         .then(data => {
             createCityCard(data);
@@ -101,16 +102,51 @@ function fetchWeather() {
 }
 
 searchButton.addEventListener('click', fetchWeather);
-
 searchInput.addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {
         fetchWeather();
     }
 });
 
-var clearButton = document.querySelector('.clear');
 
-clearButton.addEventListener('click', function () {
+function clearBoard() {
     citiesSearchedContainer.innerHTML = '';
-    alert("Board will now be cleared.");
+    console.log("Board has been cleared.");
+}
+
+var clearButton = document.querySelector('.clear');
+clearButton.addEventListener('click', function () {
+    clearBoard(); 
+});
+
+fetch('cities_list.json')
+    .then(response => response.json())
+    .then(data => {
+        citiesList = data;
+        console.log("City list successully loaded")
+    })
+    .catch(error => console.error('Error loading the city list')
+);
+
+function fetchWeatherForCity(cityName) {
+    console.log("Fetching city")
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`)
+        .then(response => {
+            console.log("City fetched")
+            return response.json();
+        })
+        .then(data => createCityCard(data))
+        .catch(e => {
+            console.error(`Error fetching weather for ${cityName}:`, e);
+        });
+}
+
+var randomizeButton = document.querySelector('.randomize');
+randomizeButton.addEventListener('click', () => {
+    console.log("Randomize button pressed");
+    clearBoard();
+    const shuffledCities = citiesList.sort(() => 0.5 - Math.random()).slice(0, 8);
+    shuffledCities.forEach(city => {
+        fetchWeatherForCity(city.City);
+    });
 });
