@@ -28,14 +28,9 @@ body {
     height: 70px;
 }
 
-.btn-light {
-    border: 1px solid black;
-}
-
-.btn-light:hover {
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
-    background-color: rgb(29, 29, 29);
-    color: white;
+.btn {
+    background-color: #212529;
+    font-weight: bold;
 }
 
 .row {

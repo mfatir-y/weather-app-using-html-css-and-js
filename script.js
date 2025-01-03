@@ -16,7 +16,7 @@ function createCityCard(data) {
     col.className = 'col';
     
     var card = document.createElement('div');
-    card.className = 'card text-black h-100 text-center shadow rounded-3 bg-dark text-white';
+    card.className = 'card h-100 text-center shadow rounded-3 bg-dark text-white border-light';
 
     var cardHeader = document.createElement('div');
     cardHeader.className = 'card-header pb-0 d-flex flex-direction-row justify-content-around align-items-center';
