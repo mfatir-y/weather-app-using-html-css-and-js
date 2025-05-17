@@ -4,49 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Display App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/b862ca47f1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="text-center">
-    <h1 class="m-3">Weather Display by OpenWeather</h1>
-    <div class="container">
-        <header class="mb-4">
-            <div class="search-box shadow-lg d-flex gap-2 bg-white border rounded-pill p-2 ps-4 mb-3">
-                <input type="text" placeholder="Enter location name" class="searchValue w-100 border-0 fs-5 lead">
-                <button class="searchButton d-block border-0"><i class="fs-5 fa-solid fa-magnifying-glass"></i></button>
-            </div>
-            <div class="d-flex mx-3 gap-4">
-                <button class="randomize btn btn-outline-light w-50" type="button">Randomize</button>
-                <button class=" clear btn btn-outline-danger w-50" type="button">Clear Board</button>
-            </div>
-        </header>
+<body>
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
 
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 text-center mx-1">
-            <!-- SAMPLE COLUMN FORMAT -->
-            <!-- <div class="col">
-                <div class="card h-100 text-center shadow rounded-3 bg-dark text-white">
-                    <div class="card-header pb-0 d-flex flex-direction-row justify-content-around align-items-center">
-                        <div class="text-start">
-                            <h4 class="city-name m-0">City Name</h4>
-                            <p class="country-name m-0 fs-6 fw-light">Country</p>
-                        </div>
-                        <img class="weather-icon" src="https://openweathermap.org/img/wn/10d@2x.png" alt="">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <div class="brand-icon">
+                    <i class="fas fa-cloud-sun"></i>
+                </div>
+                Weather App
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <div class="navbar-nav me-auto">
+                    <div class="nav-item">
+                        <a class="nav-link active" href="#">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </a>
                     </div>
-                    <div class="card-body pt-1">
-                        <p class="description card-text text-capitalize fw-bold">Rainy</p>
-                        <div class="d-flex justify-content-around">
-                            <p class="temperature card-text fw-bold">12 C</p>
-                            <p class="feels-like card-text fst-italic">Feels Like: 9 C</p>
-                        </div>
-                        <p class="daylight card-text">Daylight Duration: X hrs Y mins</p>
-                        <p class="wind card-text">Wind Speed: 13 m/s</p>
+                    <div class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-star"></i>
+                            <span>Favorites</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Map</span>
+                        </a>
                     </div>
                 </div>
-            </div> -->
+                
+                <div class="d-flex gap-3">
+                    <button class="btn btn-primary randomize" type="button">
+                        <i class="fas fa-random"></i>
+                        <span>Random</span>
+                    </button>
+                    <button class="btn btn-danger clear" type="button">
+                        <i class="fas fa-trash-alt"></i>
+                        <span>Clear</span>
+                    </button>
+                </div>
+            </div>
         </div>
-    </div>  
-    <script src="script.js" type="module"></script>  
+    </nav>
+
+    <div class="container mt-5">
+        <div class="search-container text-center">
+            <h1 class="display-4 mb-2">Weather Forecast</h1>
+            <p class="lead text-light-muted mb-5">Get real-time weather updates for any location worldwide</p>
+            
+            <div class="search-box-container">
+                <div class="search-box d-flex align-items-center">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" placeholder="Enter city name..." class="searchValue">
+                    <button class="searchButton">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                <div class="search-backdrop"></div>
+            </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-5">
+            <!-- Weather cards will be added here -->
+        </div>
+    </div>
+
+    <script src="script.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
