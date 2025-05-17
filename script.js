@@ -1,4 +1,6 @@
-const API_KEY = 'e9fdbec485cb1bb68cbd3557feb65d88';
+import { OPENWEATHER_API_KEY } from './env.js';
+
+const API_KEY = OPENWEATHER_API_KEY;
 var searchButton = document.querySelector('.searchButton');
 var searchInput = document.querySelector('.searchValue');
 var cityName = document.querySelector('.city-name');
@@ -6,10 +8,26 @@ var temperature = document.querySelector('.temperature');
 var description = document.querySelector('.description');
 var citiesSearchedContainer = document.querySelector('.row');
 
+let citiesList = [];
+
 function cityExists(city) {
     var cityHeaders = document.querySelectorAll('.city-name');
     return Array.from(cityHeaders).some(header => header.textContent.toLowerCase() === city.toLowerCase());
 }
+
+async function loadCitiesList() {
+    try {
+        const response = await fetch('cities_list.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        citiesList = await response.json();
+        console.log("Cities list loaded successfully");
+    } catch (error) {
+        console.error("Error loading the cities list:", error);
+    }
+}
+loadCitiesList();
 
 function createCityCard(data) {
     var col = document.createElement('div');
@@ -117,15 +135,6 @@ var clearButton = document.querySelector('.clear');
 clearButton.addEventListener('click', function () {
     clearBoard(); 
 });
-
-fetch('cities_list.json')
-    .then(response => response.json())
-    .then(data => {
-        citiesList = data;
-        console.log("City list successully loaded")
-    })
-    .catch(error => console.error('Error loading the city list')
-);
 
 function fetchWeatherForCity(cityName) {
     console.log("Fetching city")
